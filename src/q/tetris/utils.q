@@ -30,3 +30,7 @@ system"l tetris/constants.q";
 .tetris.utils.getRelCoords:{[pieceType;rotation]
   :PIECES[pieceType;rotation];
  };
+
+.tetris.utils.updateTickTime:{[]
+  `.tetris.tickTime set TICK_TIMES min[.tetris.gameLevel;29];
+ };

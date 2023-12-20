@@ -52,4 +52,6 @@
 
   `.tetris.lines set .tetris.lines+`long$sum not linesNotCleared;
   `.tetris.gameLevel set 1+floor .tetris.lines % 10;
+
+  .tetris.utils.updateTickTime[];
  };

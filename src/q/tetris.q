@@ -5,12 +5,12 @@ system"l tetris/tickLogic.q";
 system"l tetris/draw.q";
 
 
-.tetris.tickTime:0D00:00:03;
+.tetris.tickTime:TICK_TIMES 0;
 .tetris.tickTimeExtraAllowance:0D;
 .tetris.lastTickedTime:.z.p;
 
 .tetris.score:0;
-.tetris.gameLevel:1;
+.tetris.gameLevel:0;
 .tetris.lines:0;
 
 .tetris.pieceQueue:`$();
@@ -27,8 +27,12 @@ system"l tetris/draw.q";
 
 .tetris.start:{[]
   `.tetris.score set 0;
-  `.tetris.gameLevel set 1;
+  `.tetris.gameLevel set 0;
   `.tetris.lines set 0;
+
+  `.tetris.tickTimeExtraAllowance set 0D;
+  `.tetris.lastTickedTime set .z.p;
+  `.tetris.tickTime set TICK_TIMES .tetris.gameLevel;
 
   `.tetris.pieceQueue set 4?key PIECES;
   `.tetris.heldPiece set `;
