@@ -65,6 +65,10 @@ system"l tetris/utils.q";
   coords[`x]+:piece`x;
   coords[`y]+:piece`y;
 
+  isWithinRange:(coords[`x] within (0;BOARD_WIDTH))and coords[`y] within (0;BOARD_HEIGHT);
+  coords[`x]:coords[`x] where isWithinRange;
+  coords[`y]:coords[`y] where isWithinRange;
+
   visualIndices:asc .tetris.utils.stretchAndFlattenCoords coords;
   visualBoard1D[visualIndices]:count[visualIndices]#blockString;
 
