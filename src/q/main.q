@@ -3,7 +3,7 @@ system"l pre.q";
 system"l menu.q";
 system"l tetris.q";
 
-VERSION:"v0.1.0";
+VERSION:"v0.8.0";
 
 FPS:60;
 LEVELS:.common.getLevelNames[];
