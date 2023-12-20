@@ -1,7 +1,7 @@
 .tetris.tickLogic:{[]
   canGoDown:.tetris.canGoDown .tetris.currentPiece;
 
-  if[canGoDown;
+  if[canGoDown and not DEBUG_NO_FALLING;
     .tetris.currentPiece[`y]+:1;
   ];
 
@@ -51,7 +51,7 @@
   `.tetris.score set .tetris.score + .tetris.gameLevel*LINE_CLEAR_SCORES[-1+count where not linesNotCleared];
 
   `.tetris.lines set .tetris.lines+`long$sum not linesNotCleared;
-  `.tetris.gameLevel set 1+floor .tetris.lines % 10;
+  `.tetris.gameLevel set floor .tetris.lines % 10;
 
   .tetris.utils.updateTickTime[];
  };
