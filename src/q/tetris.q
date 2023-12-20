@@ -25,7 +25,7 @@ system"l tetris/draw.q";
 
 .tetris.gameEnded:0b;
 
-.tetris.start:{[]
+.tetris.start:{[args]
   `.tetris.score set 0;
   `.tetris.gameLevel set 0;
   `.tetris.lines set 0;
@@ -80,6 +80,10 @@ system"l tetris/draw.q";
   .tetris.currentPiece[`y]:PIECE_START`y;
   .tetris.currentPiece[`type]:nextPiece;
   .tetris.currentPiece[`rotation]:0;
+
+  while[.tetris.doesCollide .tetris.currentPiece;
+    .tetris.currentPiece[`y]-:1;
+  ];
 
   `.tetris.justHeldPiece set 0b;
 

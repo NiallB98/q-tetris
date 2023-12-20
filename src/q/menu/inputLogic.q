@@ -17,7 +17,7 @@
 
   $[
     currentOption~`quit;.common.quitGame[];
-    currentOption~`play;startScene`tetris;
+    currentOption~`play;startScene[`tetris;()!()];
     ()
   ];
  };

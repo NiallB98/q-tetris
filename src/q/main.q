@@ -21,13 +21,13 @@ currentScene:`;
 
 main:{[]
   pre[];
-  startScene`menu;
+  startScene[`menu;()!()];
   startGameLoop[FPS];
  };
 
-startScene:{[scene]
+startScene:{[scene;args]
   `currentScene set scene;
-  value".",string[currentScene],".start[]";
+  value(`$".",string[currentScene],".start";args);
  };
 
 .z.pi:{[input]
@@ -42,7 +42,7 @@ startScene:{[scene]
   ];
 
   if[(currentScene<>`menu) and input like "*menu";
-    startScene`menu;
+    startScene[`menu;()!()];
     `input.lastInput set "";
     :();
   ];
