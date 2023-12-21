@@ -121,3 +121,33 @@ system"l tetris/utils.q";
 
   :lvl;
  };
+
+.tetris.drawPaused:{[lvl]
+  splitLvl:"\n" vs lvl;
+
+  lvlWidth:count first splitLvl;
+
+  midY:floor count[splitLvl]%2;
+  midX:floor lvlWidth%2;
+
+  line1:"/------------------------------\\";
+  line2:"|         GAME PAUSED          |";
+  line3:"|                              |";
+  line4:"|     Press [P] to Unpause     |";
+  line5:"\\------------------------------/";
+
+  lineStartX:midX-floor count[line1]%2;
+  lineEndX:-1+midX+ceiling count[line1]%2;
+
+  x:1+lineStartX+til 1+lineEndX-lineStartX;
+
+  splitLvl[midY-2;x]:line1;
+  splitLvl[midY-1;x]:line2;
+  splitLvl[midY+0;x]:line3;
+  splitLvl[midY+1;x]:line4;
+  splitLvl[midY+2;x]:line5;
+
+  lvl:"\n" sv splitLvl;
+
+  :lvl;
+ };

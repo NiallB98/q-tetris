@@ -3,6 +3,7 @@ system"l tetris/utils.q";
 .tetris.inputLogic:{[input]
   $[
     .tetris.gameEnded;.tetris.gameEndedInputLogic input;
+    .tetris.gamePaused;.tetris.gamePausedInputLogic input;
     .tetris.gamePlayingInputLogic input
   ];
  };
@@ -15,11 +16,19 @@ system"l tetris/utils.q";
   ];
  };
 
+.tetris.gamePausedInputLogic:{[input]
+  $[
+    input~"p";.tetris.togglePaused[];
+    ()
+  ];
+ };
+
 .tetris.gamePlayingInputLogic:{[input]
   if[`~.tetris.currentPiece`type;:()];
 
   $[
     input~"";:();
+    input~"p";.tetris.togglePaused[];
     input in "ad";.tetris.currentPiece:.tetris.tryMoveHorizontal[.tetris.currentPiece;input~"d"];
     input in "qe";.tetris.currentPiece:.tetris.tryRotate[.tetris.currentPiece;input~"e"];
     input~"s";$[not .tetris.canGoDown .tetris.currentPiece;
@@ -33,6 +42,15 @@ system"l tetris/utils.q";
     ];
     input~" ";.tetris.tryHoldPiece[];
     ()
+  ];
+ };
+
+.tetris.togglePaused:{[]
+  `.tetris.gamePaused set not .tetris.gamePaused;
+
+  $[
+    .tetris.gamePaused;`.tetris.pauseCacheTsDiff set .z.p - .tetris.lastTickedTime;
+    `.tetris.lastTickedTime set .z.p - .tetris.pauseCacheTsDiff
   ];
  };
 

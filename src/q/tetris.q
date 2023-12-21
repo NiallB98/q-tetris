@@ -24,6 +24,8 @@ system"l tetris/draw.q";
 .tetris.showGuidePiece:1b;
 
 .tetris.gameEnded:0b;
+.tetris.gamePaused:0b;
+.tetris.pauseCacheTsDiff:0D;
 
 .tetris.start:{[args]
   `.tetris.score set 0;
@@ -40,6 +42,8 @@ system"l tetris/draw.q";
   .tetris.getNextPiece`;
 
   `.tetris.gameEnded set 0b;
+  `.tetris.gamePaused set 0b;
+  `.tetris.pauseCacheTsDiff set 0D;
 
   .tetris.loadVisualBoard1D[];
 
@@ -50,6 +54,8 @@ system"l tetris/draw.q";
 
 .tetris.process:{[input]
   .tetris.inputLogic input;
+
+  if[.tetris.gamePaused;:()];
   
   if[(.z.p>=.tetris.tickTime+.tetris.lastTickedTime) and .z.p>= .tetris.tickTimeExtraAllowance;
     .tetris.tickLogic[];
@@ -66,6 +72,7 @@ system"l tetris/draw.q";
   lvl:.tetris.drawLines[lvl;.tetris.lines];
   lvl:.tetris.drawVisualBoard[lvl;.tetris.visualBoard1D;.tetris.currentPiece;.tetris.gameGrid];
   if[.tetris.gameEnded;lvl:.tetris.drawGameOver lvl];
+  if[.tetris.gamePaused and not .tetris.gameEnded;lvl:.tetris.drawPaused lvl];
 
   -1 lvl;
  };
