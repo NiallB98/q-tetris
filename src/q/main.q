@@ -1,16 +1,13 @@
+system"l debug.q";
 system"l common.q";
 system"l pre.q";
 system"l menu.q";
 system"l tetris.q";
 
-VERSION:"v0.1.0";
+VERSION:"v0.8.0";
 
 FPS:60;
 LEVELS:.common.getLevelNames[];
-
-DEBUG_NO_CLS:0b;
-DEBUG_NO_FALLING:0b;
-DEBUG_DONT_INCREMENT_TIME:0b;
 
 currentScene:`;
 
@@ -21,13 +18,13 @@ currentScene:`;
 
 main:{[]
   pre[];
-  startScene`menu;
+  startScene[`menu;()!()];
   startGameLoop[FPS];
  };
 
-startScene:{[scene]
+startScene:{[scene;args]
   `currentScene set scene;
-  value".",string[currentScene],".start[]";
+  value(`$".",string[currentScene],".start";args);
  };
 
 .z.pi:{[input]
@@ -42,7 +39,7 @@ startScene:{[scene]
   ];
 
   if[(currentScene<>`menu) and input like "*menu";
-    startScene`menu;
+    startScene[`menu;()!()];
     `input.lastInput set "";
     :();
   ];

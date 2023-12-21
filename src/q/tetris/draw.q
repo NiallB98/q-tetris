@@ -91,3 +91,33 @@ system"l tetris/utils.q";
 
   :lvl;
  };
+
+.tetris.drawGameOver:{[lvl]
+  splitLvl:"\n" vs lvl;
+
+  lvlWidth:count first splitLvl;
+
+  midY:floor count[splitLvl]%2;
+  midX:floor lvlWidth%2;
+
+  line1:"/------------------------------\\";
+  line2:"|          GAME OVER           |";
+  line3:"|  Would you like to restart?  |";
+  line4:"|            [Y/N]             |";
+  line5:"\\------------------------------/";
+
+  lineStartX:midX-floor count[line1]%2;
+  lineEndX:-1+midX+ceiling count[line1]%2;
+
+  x:1+lineStartX+til 1+lineEndX-lineStartX;
+
+  splitLvl[midY-2;x]:line1;
+  splitLvl[midY-1;x]:line2;
+  splitLvl[midY+0;x]:line3;
+  splitLvl[midY+1;x]:line4;
+  splitLvl[midY+2;x]:line5;
+
+  lvl:"\n" sv splitLvl;
+
+  :lvl;
+ };

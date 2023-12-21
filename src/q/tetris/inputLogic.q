@@ -1,6 +1,21 @@
 system"l tetris/utils.q";
 
 .tetris.inputLogic:{[input]
+  $[
+    .tetris.gameEnded;.tetris.gameEndedInputLogic input;
+    .tetris.gamePlayingInputLogic input
+  ];
+ };
+
+.tetris.gameEndedInputLogic:{[input]
+  $[
+    input~"y";startScene[`tetris;()!()];
+    input~"n";startScene[`menu;()!()];
+    ()
+  ];
+ };
+
+.tetris.gamePlayingInputLogic:{[input]
   if[`~.tetris.currentPiece`type;:()];
 
   $[

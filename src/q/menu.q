@@ -6,7 +6,7 @@ MENU_OPTIONS:`play`quit;
 .menu.currentSelection:0;
 .menu.cursorIndices:()!();
 
-.menu.start:{[]
+.menu.start:{[args]
   `.menu.cursorIndices set `left`right!(ss[.menu.level;"@"];ss[.menu.level;"&"]);
 
   draw[];

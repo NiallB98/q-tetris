@@ -25,14 +25,14 @@ system"l tetris/draw.q";
 
 .tetris.gameEnded:0b;
 
-.tetris.start:{[]
+.tetris.start:{[args]
   `.tetris.score set 0;
   `.tetris.gameLevel set 0;
   `.tetris.lines set 0;
 
   `.tetris.tickTimeExtraAllowance set 0D;
   `.tetris.lastTickedTime set .z.p;
-  `.tetris.tickTime set TICK_TIMES .tetris.gameLevel;
+  .tetris.utils.updateTickTime[];
 
   `.tetris.pieceQueue set 4?key PIECES;
   `.tetris.heldPiece set `;
@@ -65,6 +65,7 @@ system"l tetris/draw.q";
   lvl:.tetris.drawGameLevel[lvl;.tetris.gameLevel];
   lvl:.tetris.drawLines[lvl;.tetris.lines];
   lvl:.tetris.drawVisualBoard[lvl;.tetris.visualBoard1D;.tetris.currentPiece;.tetris.gameGrid];
+  if[.tetris.gameEnded;lvl:.tetris.drawGameOver lvl];
 
   -1 lvl;
  };
@@ -80,6 +81,10 @@ system"l tetris/draw.q";
   .tetris.currentPiece[`y]:PIECE_START`y;
   .tetris.currentPiece[`type]:nextPiece;
   .tetris.currentPiece[`rotation]:0;
+
+  while[.tetris.doesCollide .tetris.currentPiece;
+    .tetris.currentPiece[`y]-:1;
+  ];
 
   `.tetris.justHeldPiece set 0b;
 
