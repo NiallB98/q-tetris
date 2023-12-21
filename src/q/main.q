@@ -1,3 +1,4 @@
+system"l debug.q";
 system"l common.q";
 system"l pre.q";
 system"l menu.q";
@@ -7,10 +8,6 @@ VERSION:"v0.8.0";
 
 FPS:60;
 LEVELS:.common.getLevelNames[];
-
-DEBUG_NO_CLS:0b;
-DEBUG_NO_FALLING:0b;
-DEBUG_DONT_INCREMENT_TIME:0b;
 
 currentScene:`;
 

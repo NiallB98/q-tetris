@@ -12,7 +12,7 @@
     numLinesCleared:.tetris.handleLineClears[];
 
     $[
-      0>minY+numLinesCleared;.tetris.triggerGameOver[];
+      0>=minY+numLinesCleared;.tetris.triggerGameOver[];
       .tetris.getNextPiece`
     ];
 
@@ -28,7 +28,6 @@
 .tetris.triggerGameOver:{[]
   `.tetris.gameEnded set 1b;
   .tetris.currentPiece[`type]:`;
-  show "GAME OVER";
  };
 
 .tetris.addPieceToGrid:{[piece]
@@ -65,7 +64,6 @@
   `.tetris.gameGrid set gameGrid;
 
   `.tetris.score set .tetris.score + (.tetris.gameLevel+1)*LINE_CLEAR_SCORES[-1+count where not linesNotCleared];
-
   `.tetris.lines set .tetris.lines+`long$sum not linesNotCleared;
   `.tetris.gameLevel set floor .tetris.lines % 10;
 

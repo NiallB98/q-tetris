@@ -32,7 +32,7 @@ system"l tetris/draw.q";
 
   `.tetris.tickTimeExtraAllowance set 0D;
   `.tetris.lastTickedTime set .z.p;
-  `.tetris.tickTime set TICK_TIMES .tetris.gameLevel;
+  .tetris.utils.updateTickTime[];
 
   `.tetris.pieceQueue set 4?key PIECES;
   `.tetris.heldPiece set `;
@@ -65,6 +65,7 @@ system"l tetris/draw.q";
   lvl:.tetris.drawGameLevel[lvl;.tetris.gameLevel];
   lvl:.tetris.drawLines[lvl;.tetris.lines];
   lvl:.tetris.drawVisualBoard[lvl;.tetris.visualBoard1D;.tetris.currentPiece;.tetris.gameGrid];
+  if[.tetris.gameEnded;lvl:.tetris.drawGameOver lvl];
 
   -1 lvl;
  };

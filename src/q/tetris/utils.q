@@ -33,5 +33,6 @@ system"l tetris/constants.q";
 
 .tetris.utils.updateTickTime:{[]
   if[DEBUG_DONT_INCREMENT_TIME;:()];
-  `.tetris.tickTime set TICK_TIMES min[.tetris.gameLevel;29];
+  
+  `.tetris.tickTime set TICK_TIMES min(.tetris.gameLevel;29);
  };
