@@ -22,5 +22,7 @@ MENU_OPTIONS:`play`quit;
   lvl:.menu.drawVersion[lvl;VERSION];
   lvl:.menu.drawCursor[lvl];
 
+  lvl:.common.centreLvl lvl;
+
   -1 lvl;
  };
