@@ -20,3 +20,14 @@ system"l common/levelEditing.q";
   -1"Thank you for playing!\n";
   exit 0;
  };
+
+.common.centreLvl:{[lvl]
+  splitLvl:"\n" vs lvl;
+
+  lvlWidth:count first splitLvl;
+  termSize:@[{"J"$first system x};"tput cols";0];
+
+  spacesCount:0|(floor termSize%2)-floor lvlWidth%2;
+
+  :"\n" sv ,[spacesCount#" "]each splitLvl;
+ };

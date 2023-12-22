@@ -77,6 +77,8 @@ system"l tetris/draw.q";
   if[.tetris.gameEnded;lvl:.tetris.drawGameOver lvl];
   if[.tetris.gamePaused and not .tetris.gameEnded;lvl:.tetris.drawPaused lvl];
 
+  lvl:.common.centreLvl lvl;
+
   -1 lvl;
  };
 
