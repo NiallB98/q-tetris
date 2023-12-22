@@ -10,6 +10,7 @@ system"l tetris/draw.q";
 .tetris.tickTimeExtraAllowance:0D;
 .tetris.lastTickedTime:.z.p;
 
+.tetris.canHoldPieces:1b;
 .tetris.heldPiece:`;
 .tetris.justHeldPiece:0b;
 
@@ -29,6 +30,7 @@ system"l tetris/draw.q";
   `.tetris.lastTickedTime set .z.p;
   .tetris.utils.updateTickTime[];
 
+  `.tetris.canHoldPieces set 1b;
   `.tetris.heldPiece set `;
   `.tetris.justHeldPiece set 0b;
 

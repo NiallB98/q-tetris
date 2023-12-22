@@ -38,7 +38,15 @@ system"l tetris/utils.q";
  };
 
 .tetris.drawHeldPiece:{[lvl;heldPiece;justHeldPiece]
-  :.tetris.drawPieceOnUI[lvl;heldPiece;justHeldPiece;"HHHHHHHH"];
+  if[.tetris.canHoldPieces;:.tetris.drawPieceOnUI[lvl;heldPiece;justHeldPiece;"HHHHHHHH"]];
+
+  searchStr:"HHHHHHHH";
+
+  startIndices:ss[lvl;searchStr];
+  lvl[first[startIndices]+til count searchStr]:"DISABLED";
+  lvl[last[startIndices]+til count searchStr]:"        ";
+
+  :lvl;
  };
 
 .tetris.drawGameLevel:{[lvl;gameLevel]

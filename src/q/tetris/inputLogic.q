@@ -178,7 +178,7 @@ system"l tetris/utils.q";
  };
 
 .tetris.tryHoldPiece:{[]
-  if[not .tetris.justHeldPiece;.tetris.holdCurrentPiece[]];
+  if[.tetris.canHoldPieces and not .tetris.justHeldPiece;.tetris.holdCurrentPiece[]];
  };
 
 .tetris.holdCurrentPiece:{[]
