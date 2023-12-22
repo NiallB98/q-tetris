@@ -151,3 +151,25 @@ system"l tetris/utils.q";
 
   :lvl;
  };
+
+.tetris.drawOverflowIndicator:{[lvl;currentPiece]
+  coords:.tetris.utils.getRelCoords[currentPiece`type;currentPiece`rotation];
+  coords[`x]+:currentPiece`x;
+  coords[`y]+:currentPiece`y;
+
+  xList:coords[`x] where 0>coords`y;
+
+  if[0~count xList;:lvl];
+
+  tgtIndices:{(x*2),1+x*2}each xList;
+  s:"====================";
+
+  s[tgtIndices]:"#";
+  
+  startIndex:1+first ss[lvl;"/====================\\"];
+  lvlIndices:startIndex+til count s;
+
+  lvl[lvlIndices]:s;
+
+  :lvl;
+ };
