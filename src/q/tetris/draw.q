@@ -6,8 +6,11 @@ system"l tetris/utils.q";
 .tetris.visualBoard1D:"";
 .tetris.visualBoardIndices:();
 
+.tetris.numShownInQueue:4;
+
 .tetris.initDraw:{[args]
   `.tetris.showGuidePiece set 1b;
+  `.tetris.numShownInQueue set 4;
 
   .tetris.loadVisualBoard1D[];
  };
@@ -29,24 +32,39 @@ system"l tetris/utils.q";
  };
 
 .tetris.drawNextPieces:{[lvl;pieceQueue]
-  lvl:.tetris.drawPieceOnUI[lvl;pieceQueue 0;0b;"AAAAAAAA"];
-  lvl:.tetris.drawPieceOnUI[lvl;pieceQueue 1;0b;"XXXXXXXX"];
-  lvl:.tetris.drawPieceOnUI[lvl;pieceQueue 2;0b;"YYYYYYYY"];
-  lvl:.tetris.drawPieceOnUI[lvl;pieceQueue 3;0b;"ZZZZZZZZ"];
+  lvl:$[
+    .tetris.numShownInQueue>=1;.tetris.drawPieceOnUI[lvl;pieceQueue 0;0b;"AAAAAAAA"];
+    .tetris.hidePieceUI[lvl;"AAAAAAAA";" HIDDEN "]
+  ];
+  lvl:$[
+    .tetris.numShownInQueue>=2;.tetris.drawPieceOnUI[lvl;pieceQueue 1;0b;"XXXXXXXX"];
+    .tetris.hidePieceUI[lvl;"XXXXXXXX";" HIDDEN "]
+  ];
+  lvl:$[
+    .tetris.numShownInQueue>=3;.tetris.drawPieceOnUI[lvl;pieceQueue 2;0b;"YYYYYYYY"];
+    .tetris.hidePieceUI[lvl;"YYYYYYYY";" HIDDEN "]
+  ];
+  lvl:$[
+    .tetris.numShownInQueue>=4;.tetris.drawPieceOnUI[lvl;pieceQueue 3;0b;"ZZZZZZZZ"];
+    .tetris.hidePieceUI[lvl;"ZZZZZZZZ";" HIDDEN "]
+  ];
 
   :lvl;
  };
 
 .tetris.drawHeldPiece:{[lvl;heldPiece;justHeldPiece]
-  if[.tetris.canHoldPieces;:.tetris.drawPieceOnUI[lvl;heldPiece;justHeldPiece;"HHHHHHHH"]];
+  :$[
+    .tetris.canHoldPieces;.tetris.drawPieceOnUI[lvl;heldPiece;justHeldPiece;"HHHHHHHH"];
+    .tetris.hidePieceUI[lvl;"HHHHHHHH";"DISABLED"]
+  ];
+ };
 
-  searchStr:"HHHHHHHH";
-
+.tetris.hidePieceUI:{[lvl;searchStr;msg]
   startIndices:ss[lvl;searchStr];
-  lvl[first[startIndices]+til count searchStr]:"DISABLED";
+  lvl[first[startIndices]+til count searchStr]:msg;
   lvl[last[startIndices]+til count searchStr]:"        ";
 
-  :lvl;
+  :lvl
  };
 
 .tetris.drawGameLevel:{[lvl;gameLevel]
