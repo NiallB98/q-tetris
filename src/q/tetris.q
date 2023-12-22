@@ -74,6 +74,8 @@ system"l tetris/draw.q";
   lvl:.tetris.drawGameLevel[lvl;.tetris.gameLevel];
   lvl:.tetris.drawLines[lvl;.tetris.lines];
   lvl:.tetris.drawVisualBoard[lvl;.tetris.visualBoard1D;.tetris.currentPiece;.tetris.gameGrid];
+  lvl:.tetris.drawOverflowIndicator[lvl;.tetris.currentPiece];
+
   if[.tetris.gameEnded;lvl:.tetris.drawGameOver lvl];
   if[.tetris.gamePaused and not .tetris.gameEnded;lvl:.tetris.drawPaused lvl];
 
