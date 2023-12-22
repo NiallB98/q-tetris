@@ -16,12 +16,13 @@ system"l tetris/constants.q";
   :raze+[dimFactor*x]each(dimFactor*otherDimFactor)#til dimFactor;
  };
 
-.tetris.doesCollide:{[piece]
+.tetris.utils.doesCollide:{[piece]
   relCoords:.tetris.utils.getRelCoords[piece`type;piece`rotation];
 
   :any{[x;y]
     if[(y>=count .tetris.gameGrid)or x>=count first .tetris.gameGrid;:1b];
     if[x<0;:1b];
+    if[y<0;:0b];
 
     :.tetris.gameGrid[y;x];
   }'[piece[`x]+relCoords`x;piece[`y]+relCoords`y];
