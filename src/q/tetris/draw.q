@@ -1,5 +1,29 @@
 system"l tetris/utils.q";
 
+
+.tetris.showGuidePiece:1b;
+
+.tetris.visualBoard1D:"";
+.tetris.visualBoardIndices:();
+
+.tetris.initDraw:{[]
+  `.tetris.showGuidePiece set 1b;
+
+  .tetris.loadVisualBoard1D[];
+ };
+
+.tetris.loadVisualBoard1D:{[]
+  `.tetris.visualBoardIndices set ();
+
+  `.tetris.visualBoard1D set raze{[x;y]
+    res:ssr[ssr[.tetris.level[indices:x+til 1+y-x];"@";" "];"&";" "];
+
+    `.tetris.visualBoardIndices set .tetris.visualBoardIndices,indices;
+
+    :res;
+  }'[ss[.tetris.level;"@"];ss[.tetris.level;"&"]];
+ };
+
 .tetris.drawScore:{[lvl;score]
   :ssr[lvl;"SSSSSSSS";-8#"00000000",string score&99999999];
  };
