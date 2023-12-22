@@ -27,6 +27,9 @@ system"l tetris/draw.q";
 .tetris.gamePaused:0b;
 .tetris.pauseCacheTsDiff:0D;
 
+.tetris.allowWallKicks:1b;
+.tetris.allowFloorKicks:1b;
+
 .tetris.start:{[args]
   `.tetris.score set 0;
   `.tetris.gameLevel set 0;
@@ -89,7 +92,7 @@ system"l tetris/draw.q";
   .tetris.currentPiece[`type]:nextPiece;
   .tetris.currentPiece[`rotation]:0;
 
-  while[.tetris.doesCollide .tetris.currentPiece;
+  while[.tetris.utils.doesCollide .tetris.currentPiece;
     .tetris.currentPiece[`y]-:1;
   ];
 

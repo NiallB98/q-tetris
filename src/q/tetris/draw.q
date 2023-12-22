@@ -65,7 +65,7 @@ system"l tetris/utils.q";
   coords[`x]+:piece`x;
   coords[`y]+:piece`y;
 
-  isWithinRange:(coords[`x] within (0;BOARD_WIDTH))and coords[`y] within (0;BOARD_HEIGHT);
+  isWithinRange:(coords[`x] within (0;BOARD_WIDTH-1))and coords[`y] within (0;BOARD_HEIGHT-1);
   coords[`x]:coords[`x] where isWithinRange;
   coords[`y]:coords[`y] where isWithinRange;
 
