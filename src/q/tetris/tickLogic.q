@@ -1,3 +1,13 @@
+.tetris.score:0;
+.tetris.gameLevel:0;
+.tetris.lines:0;
+
+.tetris.initTickLogic:{[args]
+  `.tetris.score set 0;
+  `.tetris.gameLevel set 0;
+  `.tetris.lines set 0;
+ };
+
 .tetris.tickLogic:{[]
   if[.tetris.gameEnded;:()];
 

@@ -1,5 +1,29 @@
 system"l tetris/utils.q";
 
+
+.tetris.showGuidePiece:1b;
+
+.tetris.visualBoard1D:"";
+.tetris.visualBoardIndices:();
+
+.tetris.initDraw:{[args]
+  `.tetris.showGuidePiece set 1b;
+
+  .tetris.loadVisualBoard1D[];
+ };
+
+.tetris.loadVisualBoard1D:{[]
+  `.tetris.visualBoardIndices set ();
+
+  `.tetris.visualBoard1D set raze{[x;y]
+    res:ssr[ssr[.tetris.level[indices:x+til 1+y-x];"@";" "];"&";" "];
+
+    `.tetris.visualBoardIndices set .tetris.visualBoardIndices,indices;
+
+    :res;
+  }'[ss[.tetris.level;"@"];ss[.tetris.level;"&"]];
+ };
+
 .tetris.drawScore:{[lvl;score]
   :ssr[lvl;"SSSSSSSS";-8#"00000000",string score&99999999];
  };
@@ -153,6 +177,8 @@ system"l tetris/utils.q";
  };
 
 .tetris.drawOverflowIndicator:{[lvl;currentPiece]
+  if[`~currentPiece`type;:()];
+
   coords:.tetris.utils.getRelCoords[currentPiece`type;currentPiece`rotation];
   coords[`x]+:currentPiece`x;
   coords[`y]+:currentPiece`y;
@@ -161,7 +187,7 @@ system"l tetris/utils.q";
 
   if[0~count xList;:lvl];
 
-  tgtIndices:{(x*2),1+x*2}each xList;
+  tgtIndices:{(x*2),1+x*2}each distinct xList;
   s:"====================";
 
   s[tgtIndices]:"#";
