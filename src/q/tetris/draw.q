@@ -177,6 +177,8 @@ system"l tetris/utils.q";
  };
 
 .tetris.drawOverflowIndicator:{[lvl;currentPiece]
+  if[`~currentPiece`type;:()];
+
   coords:.tetris.utils.getRelCoords[currentPiece`type;currentPiece`rotation];
   coords[`x]+:currentPiece`x;
   coords[`y]+:currentPiece`y;
@@ -185,7 +187,7 @@ system"l tetris/utils.q";
 
   if[0~count xList;:lvl];
 
-  tgtIndices:{(x*2),1+x*2}each xList;
+  tgtIndices:{(x*2),1+x*2}each distinct xList;
   s:"====================";
 
   s[tgtIndices]:"#";
