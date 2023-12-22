@@ -20,10 +20,10 @@ system"l tetris/draw.q";
 .tetris.pauseCacheTsDiff:0D;
 
 .tetris.start:{[args]
-  .tetris.initInputLogic[];
-  .tetris.initTickLogic[];
-  .tetris.initPieceRandomiser[];
-  .tetris.initDraw[];
+  .tetris.initInputLogic[args];
+  .tetris.initTickLogic[args];
+  .tetris.initPieceRandomiser[args];
+  .tetris.initDraw[args];
 
   `.tetris.tickTimeExtraAllowance set 0D;
   `.tetris.lastTickedTime set .z.p;

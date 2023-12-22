@@ -1,7 +1,7 @@
 .tetris.currentPiece:`x`y`type`rotation!(0;0;`;0);
 .tetris.pieceQueue:`$();
 
-.tetris.initPieceRandomiser:{[]
+.tetris.initPieceRandomiser:{[args]
   `.tetris.pieceQueue set 4?key PIECES;
 
   .tetris.getNextPiece`;

@@ -6,7 +6,7 @@ system"l tetris/utils.q";
 .tetris.visualBoard1D:"";
 .tetris.visualBoardIndices:();
 
-.tetris.initDraw:{[]
+.tetris.initDraw:{[args]
   `.tetris.showGuidePiece set 1b;
 
   .tetris.loadVisualBoard1D[];
