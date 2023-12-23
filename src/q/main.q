@@ -5,7 +5,7 @@ system"l menu.q";
 system"l tetris.q";
 system"l levelSelect.q";
 
-VERSION:"v0.9.0";
+VERSION:"v0.9.1";
 
 FPS:60;
 LEVELS:.common.getLevelNames[];
