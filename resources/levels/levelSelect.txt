@@ -1,0 +1,31 @@
++------------------------------------------------------------------------------+
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|        Level:                     @ 00 &                                     |
+|                                                                              |
+|        Piece Randomiser:          @ [Modern]  NES   Basic  &                 |
+|                                                                              |
+|        Next Pieces Seen:          @  0   1   2   3  [4] &                    |
+|                                                                              |
+|        Can Hold Pieces:           @ [X] &                                    |
+|                                                                              |
+|        Show Guide Piece:          @ [X] &                                    |
+|                                                                              |
+|        Allow Wall Kicks:          @ [X] &                                    |
+|                                                                              |
+|        Allow Floor Kicks:         @ [X] &                                    |
+|                                                                              |
+|                                                                              |
+|                                    START                                     |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                                                              |
++------------------------------------------------------------------------------+
+`level`randomiser`queueLength`canHoldPieces`showGuide`allowWallKicks`allowFloorKicks`play
