@@ -203,7 +203,7 @@ system"l tetris/utils.q";
  };
 
 .tetris.drawOverflowIndicator:{[lvl;currentPiece]
-  if[`~currentPiece`type;:()];
+  if[`~currentPiece`type;:lvl];
 
   coords:.tetris.utils.getRelCoords[currentPiece`type;currentPiece`rotation];
   coords[`x]+:currentPiece`x;
