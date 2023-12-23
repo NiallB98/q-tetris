@@ -1,24 +1,20 @@
+system"l levelSelect/constants.q";
 system"l levelSelect/inputLogic.q";
 system"l levelSelect/draw.q";
 
-DEFAULT_GAME_LEVEL:0;
-DEFAULT_RANDOMISER:`modern;
-DEFAULT_NUM_SHOWN_IN_QUEUE:4;
-DEFAULT_CAN_HOLD_PIECES:1b;
-DEFAULT_SHOW_GUIDE:1b;
-DEFAULT_ALLOW_WALL_KICKS:1b;
-DEFAULT_ALLOW_FLOOR_KICKS:1b;
+.levelSelect.args:enlist[`]!enlist();
+.levelSelect.args[`gameLevel]:DEFAULT_GAME_LEVEL;
+.levelSelect.args[`randomiserMode]:DEFAULT_RANDOMISER;
+.levelSelect.args[`numShownInQueue]:DEFAULT_NUM_SHOWN_IN_QUEUE;
+.levelSelect.args[`canHoldPieces]:DEFAULT_CAN_HOLD_PIECES;
+.levelSelect.args[`showGuidePiece]:DEFAULT_SHOW_GUIDE;
+.levelSelect.args[`allowWallKicks]:DEFAULT_ALLOW_WALL_KICKS;
+.levelSelect.args[`allowFloorKicks]:DEFAULT_ALLOW_FLOOR_KICKS;
 
-.levelSelect.gameLevel:DEFAULT_GAME_LEVEL;
-.levelSelect.randomiserMode:DEFAULT_RANDOMISER;
-.levelSelect.numShownInQueue:DEFAULT_NUM_SHOWN_IN_QUEUE;
-.levelSelect.canHoldPieces:DEFAULT_CAN_HOLD_PIECES;
-.levelSelect.showGuidePiece:DEFAULT_SHOW_GUIDE;
-.levelSelect.allowWallKicks:DEFAULT_ALLOW_WALL_KICKS;
-.levelSelect.allowFloorKicks:DEFAULT_ALLOW_FLOOR_KICKS;
+ .levelSelect.currentSelection:0;
 
 .levelSelect.start:{[args]
-  .levelSelect.initInputLogic[args];
+  `.levelSelect.currentSelection set 0;
 
   draw[];
  };
@@ -28,5 +24,13 @@ DEFAULT_ALLOW_FLOOR_KICKS:1b;
  };
 
 .levelSelect.draw:{[]
-  
+  lvl:.levelSelect.level;
+
+  lvl:.levelSelect.drawPrompt lvl;
+  lvl:.levelSelect.drawCursor lvl;
+  lvl:.levelSelect.drawSelectedOptions lvl;
+
+  lvl:.common.centreLvl lvl;
+
+  -1 lvl;
  };

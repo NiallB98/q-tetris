@@ -7,9 +7,9 @@
 |                                                                              |
 |        Level:                     @ 00 &                                     |
 |                                                                              |
-|        Piece Randomiser:          @ [Modern]  NES   Basic  &                 |
+|        Piece Randomiser:          @ [Modern] [NES] [Basic] &                 |
 |                                                                              |
-|        Next Pieces Seen:          @  0   1   2   3  [4] &                    |
+|        Next Pieces Seen:          @ [0] [1] [2] [3] [4] &                    |
 |                                                                              |
 |        Can Hold Pieces:           @ [X] &                                    |
 |                                                                              |
@@ -20,12 +20,11 @@
 |        Allow Floor Kicks:         @ [X] &                                    |
 |                                                                              |
 |                                                                              |
-|                                    START                                     |
+|                                  @ START &                                   |
 |                                                                              |
 |                                                                              |
 |                                                                              |
-|                                                                              |
+| $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ |
 |                                                                              |
 |                                                                              |
 +------------------------------------------------------------------------------+
-`level`randomiser`queueLength`canHoldPieces`showGuide`allowWallKicks`allowFloorKicks`play
