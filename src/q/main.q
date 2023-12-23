@@ -3,6 +3,7 @@ system"l common.q";
 system"l pre.q";
 system"l menu.q";
 system"l tetris.q";
+system"l levelSelect.q";
 
 VERSION:"v0.9.0";
 
@@ -28,9 +29,11 @@ startScene:{[scene;args]
  };
 
 .z.pi:{[input]
-  .gameLoop.drawNextFrame:1b;
-
   input:input except "\n";
+
+  if[DEBUG_ALLOW_CMDS and input like "\\*";value 1 _ input;:()];
+
+  .gameLoop.drawNextFrame:1b;
 
   if[input~"";`.input.lastInput set "";:()];
 

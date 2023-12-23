@@ -9,8 +9,8 @@ system"l tetris/utils.q";
 .tetris.numShownInQueue:4;
 
 .tetris.initDraw:{[args]
-  `.tetris.showGuidePiece set 1b;
-  `.tetris.numShownInQueue set 4;
+  `.tetris.showGuidePiece set args`showGuidePiece;
+  `.tetris.numShownInQueue set args`numShownInQueue;
 
   .tetris.loadVisualBoard1D[];
  };

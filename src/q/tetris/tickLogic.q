@@ -1,10 +1,12 @@
 .tetris.score:0;
+.tetris.startingGameLevel:0;
 .tetris.gameLevel:0;
 .tetris.lines:0;
 
 .tetris.initTickLogic:{[args]
   `.tetris.score set 0;
-  `.tetris.gameLevel set 0;
+  `.tetris.startingGameLevel set args`gameLevel;
+  `.tetris.gameLevel set .tetris.startingGameLevel;
   `.tetris.lines set 0;
  };
 
@@ -75,7 +77,7 @@
 
   `.tetris.score set .tetris.score + (.tetris.gameLevel+1)*LINE_CLEAR_SCORES[-1+count where not linesNotCleared];
   `.tetris.lines set .tetris.lines+`long$sum not linesNotCleared;
-  `.tetris.gameLevel set floor .tetris.lines % 10;
+  `.tetris.gameLevel set max(floor .tetris.lines % 10;.tetris.startingGameLevel);
 
   .tetris.utils.updateTickTime[];
 

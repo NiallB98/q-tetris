@@ -9,11 +9,23 @@
  };
 
 .menu.drawCursor:{[lvl]
-  leftIndex:(.menu.cursorIndices`left) .menu.currentSelection;
-  rightIndex:(.menu.cursorIndices`right) .menu.currentSelection;
+  leftIndex:ss[lvl;"@"] .menu.currentSelection;
+  rightIndex:ss[lvl;"&"] .menu.currentSelection;
 
   lvl[leftIndex]:">";
   lvl[rightIndex]:"<";
 
   :ssr[ssr[lvl;"@";" "];"&";" "];
+ };
+
+.menu.drawPrompt:{[lvl]
+  searchStr:76#"$";
+
+  prompt:"Up/Down [W/S], Select [E/Space]";
+  prompt:{
+    y:y-count x;
+    :((floor[y%2]#" "),x),ceiling [y%2]#" ";
+  }[prompt;count searchStr];
+
+  :ssr[lvl;searchStr;prompt];
  };
