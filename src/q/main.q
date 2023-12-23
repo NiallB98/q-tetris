@@ -73,7 +73,12 @@ draw:{[]
 startGameLoop:{[fps]
   time:ceiling 1000%fps;
 
-  `.z.ts set gameLoop;
+  `.z.ts set {.Q.trp[gameLoop;0;{
+        2@"Error: ",x,"\nBacktrace:\n",.Q.sbt y;
+        $[DEBUG_ALLOW_CMDS;[.z.pi:value;value"\\t 0"];exit 1]
+      }
+    ]
+  };
 
   value"\\t ",string time;
  };
