@@ -19,7 +19,7 @@ system"l tetris/utils.q";
 
 .tetris.gameEndedInputLogic:{[input]
   $[
-    input~"y";startScene[`tetris;()!()];
+    input~"y";startScene[`levelSelect;()!()];
     input~"n";startScene[`menu;()!()];
     ()
   ];
