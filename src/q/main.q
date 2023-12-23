@@ -75,7 +75,7 @@ startGameLoop:{[fps]
 
   `.z.ts set {.Q.trp[gameLoop;0;{
         2@"Error: ",x,"\nBacktrace:\n",.Q.sbt y;
-        $[DEBUG_ALLOW_CMDS;[.z.pi:value;value"\\t 0"];exit 1]
+        $[DEBUG_ALLOW_CMDS;[value"\\x .z.pi";value"\\t 0";value"\\x .z.ts"];exit 1]
       }
     ]
   };
