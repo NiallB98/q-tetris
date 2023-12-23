@@ -5,8 +5,8 @@ system"l tetris/utils.q";
 .tetris.allowFloorKicks:1b;
 
 .tetris.initInputLogic:{[args]
-  `.tetris.allowWallKicks set 1b;
-  `.tetris.allowFloorKicks set 1b;
+  `.tetris.allowWallKicks set args`allowWallKicks;
+  `.tetris.allowFloorKicks set args`allowFloorKicks;
  };
 
 .tetris.inputLogic:{[input]

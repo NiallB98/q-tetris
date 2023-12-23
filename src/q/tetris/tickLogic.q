@@ -5,7 +5,7 @@
 
 .tetris.initTickLogic:{[args]
   `.tetris.score set 0;
-  `.tetris.startingGameLevel set 1;
+  `.tetris.startingGameLevel set args`gameLevel;
   `.tetris.gameLevel set .tetris.startingGameLevel;
   `.tetris.lines set 0;
  };

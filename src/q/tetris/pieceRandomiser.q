@@ -5,7 +5,7 @@
 .tetris.randomiser.currentBag:-7?key PIECES;  // Used by `modern
 
 .tetris.initPieceRandomiser:{[args]
-  `.tetris.randomiserMode set `modern;
+  `.tetris.randomiserMode set args`randomiserMode;
   `.tetris.randomiser.currentBag set `$();
   `.tetris.pieceQueue set `$();
 
@@ -38,7 +38,7 @@
   $[
     .tetris.randomiserMode~`fullyRandom;.tetris.randomiser.fullyRandom.addToQueue[];
     .tetris.randomiserMode~`modern;.tetris.randomiser.modern.addToQueue[];
-    .tetris.randomiserMode~`nes;.tetris.randomiser.nes.addToQueue;
+    .tetris.randomiserMode~`nes;.tetris.randomiser.nes.addToQueue[];
     'randomiserModeNotFound
   ];
  };
