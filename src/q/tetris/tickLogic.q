@@ -29,8 +29,6 @@
     ];
 
     .Q.gc[];
-
-    :();
   ];
 
   `.gameLoop.drawNextFrame set 1b;
