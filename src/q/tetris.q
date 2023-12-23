@@ -21,11 +21,6 @@ system"l tetris/draw.q";
 .tetris.pauseCacheTsDiff:0D;
 
 .tetris.start:{[args]
-  .tetris.initInputLogic[args];
-  .tetris.initTickLogic[args];
-  .tetris.initPieceRandomiser[args];
-  .tetris.initDraw[args];
-
   `.tetris.tickTimeExtraAllowance set 0D;
   `.tetris.lastTickedTime set .z.p;
   .tetris.utils.updateTickTime[];
@@ -39,6 +34,11 @@ system"l tetris/draw.q";
   `.tetris.pauseCacheTsDiff set 0D;
 
   `.tetris.gameGrid set BOARD_HEIGHT#(enlist BOARD_WIDTH#0b);
+
+  .tetris.initInputLogic[args];
+  .tetris.initTickLogic[args];
+  .tetris.initPieceRandomiser[args];
+  .tetris.initDraw[args];
 
   draw[];
  };
