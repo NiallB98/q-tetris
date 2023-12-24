@@ -32,14 +32,13 @@ To start the game execute the `run.sh` script. The game's controls are all displ
 ### Global
 * `menu` - Go to main menu
 * `quit`/`exit` - Quit game
-* `fps XX` - Set the game FPS to double-digit amount XX
+* `fps X` - Set the game FPS to amount X (60 by default)
 
 ### In-Game
 - `p` - Pause game
 
 ## Extra Tips
 * The game's default FPS can be configured in `config.env`
-* Setting too high an fps value will make the game hard to see due to limitations on how fast q/kdb+ can write to stdout
 
 ## Screenshots
 

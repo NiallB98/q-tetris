@@ -8,7 +8,7 @@ system"l levelSelect.q";
 
 VERSION:"v1.0.0";
 
-.gameLoop.fps:15;
+.gameLoop.fps:60;
 LEVELS:.common.getLevelNames[];
 
 currentScene:`;
@@ -75,8 +75,6 @@ process:{[input]
  };
 
 draw:{[]
-  .common.cls[];
-
   value".",string[currentScene],".draw[]";
   1"[qTetris ",VERSION,"] ";
 
@@ -107,9 +105,9 @@ getFPSArg:{[]
   argVal:.Q.opt[.z.x]`fps;
 
   :$[
-    0~count argVal;15;
-    all first argVal in .Q.n;{$[null x;15;x]}"J"$first argVal;
-    15
+    0~count argVal;60;
+    all first argVal in .Q.n;{$[null x;60;x]}"J"$first argVal;
+    60
   ];
  };
 

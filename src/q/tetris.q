@@ -69,5 +69,6 @@ system"l tetris/draw.q";
 
   lvl:.common.centreLvl lvl;
 
+  .common.cls[];
   -1 lvl;
  };
