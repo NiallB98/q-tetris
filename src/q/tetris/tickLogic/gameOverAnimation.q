@@ -18,7 +18,3 @@
 
   -1 lvl;
  };
-
-.tetris.gameOverAnimationEnd:{[args]
-  
- };
