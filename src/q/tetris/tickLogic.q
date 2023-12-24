@@ -84,7 +84,7 @@ system"l tetris/tickLogic/lineClearAnimation.q";
 
   .tetris.utils.updateTickTime[];
 
-  queueAnimation[6;.tetris.lineClearAnimation;`gameGrid`pieceQueue!(prevGameGrid;.tetris.pieceQueue)];
+  queueAnimation[6;.tetris.lineClearAnimation;`gameGrid`pieceQueue`framesCount!(prevGameGrid;.tetris.pieceQueue;6)];
 
   :count where not linesNotCleared;
  };

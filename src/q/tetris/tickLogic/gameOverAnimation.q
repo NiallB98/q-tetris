@@ -4,6 +4,8 @@
     .tetris.gameGrid[first clearIndices]:BOARD_WIDTH#0b;
   ];
 
+  .common.cls[];
+
   lvl:.tetris.level;
 
   lvl:.tetris.drawScore[lvl;.tetris.score];

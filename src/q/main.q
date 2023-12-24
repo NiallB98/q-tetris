@@ -8,7 +8,7 @@ system"l levelSelect.q";
 
 VERSION:"v1.0.0";
 
-FPS:60;
+.gameLoop.fps:15;
 LEVELS:.common.getLevelNames[];
 
 currentScene:`;
@@ -19,9 +19,11 @@ currentScene:`;
 .input.lastInput:"";
 
 main:{[]
+  `.gameLoop.fps set 0N!getFPSArg[];
+
   pre[];
   startScene[`menu;()!()];
-  startGameLoop[FPS];
+  startGameLoop[.gameLoop.fps];
  };
 
 startScene:{[scene;args]
@@ -44,6 +46,12 @@ startScene:{[scene;args]
 
   if[(currentScene<>`menu) and input like "*menu";
     startScene[`menu;()!()];
+    `input.lastInput set "";
+    :();
+  ];
+
+  if[input like "fps [0-9][0-9]";
+    changeFPS "J"$last " " vs input;
     `input.lastInput set "";
     :();
   ];
@@ -86,6 +94,23 @@ startGameLoop:{[fps]
   };
 
   value"\\t ",string time;
+ };
+
+changeFPS:{[fps]
+  `.gameLoop.fps set fps;
+  time:ceiling 1000%fps;
+
+  value"\\t ",string time;
+ };
+
+getFPSArg:{[]
+  argVal:.Q.opt[.z.x]`fps;
+
+  :$[
+    0~count argVal;15;
+    all first argVal in .Q.n;{$[null x;15;x]}"J"$first argVal;
+    15
+  ];
  };
 
 main[];

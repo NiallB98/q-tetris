@@ -1,5 +1,8 @@
 .tetris.lineClearAnimation:{[args]
   if[animationFramesLeft~1;draw[];:()];
+  if[animationFramesLeft<>args`framesCount;:()];
+
+  .common.cls[];
 
   lvl:.tetris.level;
 

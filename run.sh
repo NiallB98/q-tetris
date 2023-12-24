@@ -31,7 +31,7 @@ cd "${MAIN_SCRIPT_DIR}"
 
 # Starting main.q
 echo "Starting main.q . . ."
-$Q_CMD "main.q"
+$Q_CMD "main.q" -fps "${FPS}"
 
 # Return user to previous directory they were in
 cd "$OLDPWD"
