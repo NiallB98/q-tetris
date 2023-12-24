@@ -1,5 +1,20 @@
 # qTetris
 
+## Table of Contents
+- [qTetris](#qtetris)
+  - [Table of Contents](#table-of-contents)
+  - [Requirements](#requirements)
+  - [Introduction](#introduction)
+  - [How to Play](#how-to-play)
+  - [Commands](#commands)
+    - [Global](#global)
+    - [In-Game](#in-game)
+  - [Extra Tips](#extra-tips)
+  - [Screenshots](#screenshots)
+    - [Menu](#menu)
+    - [Pre-Game Config](#pre-game-config)
+    - [Gameplay](#gameplay)
+
 ## Requirements
 * `bash`
 * `q/kdb+` (Tested in version 4.0)
@@ -22,7 +37,7 @@ To start the game execute the `run.sh` script. The game's controls are all displ
 ### In-Game
 - `p` - Pause game
 
-## Extras
+## Extra Tips
 * The game's default FPS can be configured in `config.env`
 * Setting too high an fps value will make the game hard to see due to limitations on how fast q/kdb+ can write to stdout
 
