@@ -22,5 +22,6 @@ MENU_OPTIONS:`play`quit;
 
   lvl:.common.centreLvl lvl;
 
+  .common.cls[];
   -1 lvl;
  };
