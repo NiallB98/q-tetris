@@ -1,11 +1,12 @@
 system"l debug.q";
 system"l common.q";
 system"l pre.q";
+system"l animation.q";
 system"l menu.q";
 system"l tetris.q";
 system"l levelSelect.q";
 
-VERSION:"v0.9.1";
+VERSION:"v1.0.0";
 
 FPS:60;
 LEVELS:.common.getLevelNames[];
@@ -51,10 +52,14 @@ startScene:{[scene;args]
  };
 
 gameLoop:{[]
-  process[.input.lastInput];
+  if[animationFramesLeft<=0;process .input.lastInput];
   `.input.lastInput set "";
 
-  if[.gameLoop.drawNextFrame;draw[]];
+  $[
+    .gameLoop.drawNextFrame and animationFramesLeft<=0;draw[];
+    animationFramesLeft>0;[runAnimation[];:()];
+    ()
+  ];
  };
 
 process:{[input]
