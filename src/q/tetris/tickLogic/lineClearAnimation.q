@@ -5,6 +5,7 @@
 
   lvl:.tetris.drawScore[lvl;.tetris.score];
   lvl:.tetris.drawNextPieces[lvl;args`pieceQueue];
+  lvl:.tetris.drawHeldPiece[lvl;.tetris.heldPiece;.tetris.justHeldPiece];
   lvl:.tetris.drawGameLevel[lvl;.tetris.gameLevel];
   lvl:.tetris.drawLines[lvl;.tetris.lines];
   lvl:.tetris.drawVisualBoard[lvl;.tetris.visualBoard1D;enlist[`type]!enlist`;args`gameGrid];
