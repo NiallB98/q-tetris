@@ -1,3 +1,5 @@
+system"l tetris/tickLogic/gameOverAnimation.q";
+
 .tetris.score:0;
 .tetris.startingGameLevel:0;
 .tetris.gameLevel:0;
@@ -38,6 +40,7 @@
 .tetris.triggerGameOver:{[]
   `.tetris.gameEnded set 1b;
   .tetris.currentPiece[`type]:`;
+  queueAnimation[12+count .tetris.gameGrid;.tetris.gameOverAnimation;.tetris.gameOverAnimationEnd;()!()];
  };
 
 .tetris.addPieceToGrid:{[piece]
