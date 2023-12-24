@@ -39,7 +39,7 @@ To start the game execute the `run.sh` script. The game's controls are all displ
 
 ## Extra Tips
 * The game's default FPS can be configured in `config.env`
-* Setting too high an fps value will make the game hard to see due to limitations on how fast q/kdb+ can write to stdout
+* Setting too high an FPS value will make the game hard to see due to limitations on how fast q/kdb+ can write to stdout
 
 ## Screenshots
 
