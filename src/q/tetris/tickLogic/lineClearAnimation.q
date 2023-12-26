@@ -16,4 +16,5 @@
 
   .common.cls[];
   -1 lvl;
+  1"[qTetris ",VERSION,"] ";
  };
