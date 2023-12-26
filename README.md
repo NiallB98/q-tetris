@@ -39,7 +39,7 @@ To start the game execute the `run.sh` script. The game's controls are all displ
 
 ## Extra Tips
 * The game's default FPS can be configured in `config.env`
-* To register input the enter key must be pressed after the key is pressed
+* To register input the `Enter` key must be pressed after the key is pressed
 
 ## Screenshots
 
