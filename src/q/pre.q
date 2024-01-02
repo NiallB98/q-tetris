@@ -1,5 +1,17 @@
-assignLevel:{[lvl;data]
-  $[`;".",string[lvl],".level"] set data;
+pre:{
+  loadLevels[];
+
+  value"\\S ",string`int$.z.t;  // Randomising the random seed based on the curent time
+
+  -1"Starting game . . .";
+ };
+
+loadLevels:{
+  -1"Loading level data . . .";
+
+  loadLevel each getLevelNames[];
+
+  -1"All level data loaded";
  };
 
 loadLevel:{[lvl]
@@ -10,18 +22,11 @@ loadLevel:{[lvl]
   -1"Loaded";
  };
 
-loadLevels:{
-  -1"Loading level data . . .";
-
-  loadLevel each LEVELS;
-
-  -1"All level data loaded";
+assignLevel:{[lvl;data]
+  $[`;".",string[lvl],".level"] set data;
  };
 
-pre:{
-  loadLevels[];
-
-  value"\\S ",string`int$.z.t;  // Randomising the random seed based on the curent time
-
-  -1"Starting game . . .";
+getLevelNames:{[]
+  dir:`:../../resources/levels;
+  :`$_[-4]each string key[dir] where key[dir] like "*.txt";
  };

@@ -4,11 +4,6 @@
   1"\033[H\033[2J\033[3J";
  };
 
-.common.getLevelNames:{[]
-  dir:`:../../resources/levels;
-  :`$_[-4]each string key[dir] where key[dir] like "*.txt";
- };
-
 .common.quitGame:{[]
   .common.cls[];
   -1"Thank you for playing!\n";

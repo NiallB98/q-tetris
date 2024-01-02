@@ -8,8 +8,6 @@ system"l levelSelect.q";
 
 VERSION:"v1.1.0";
 
-LEVELS:.common.getLevelNames[];
-
 currentScene:`;
 
 .gameLoop.fps:60;
