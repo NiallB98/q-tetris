@@ -1,13 +1,7 @@
-system"l common/levelEditing.q";
-
 .common.cls:{
   if[DEBUG_NO_CLS;-1"DEBUG Cleared screen";:()];
   
   1"\033[H\033[2J\033[3J";
- };
-
-.common.limitLen:{[size;str]
-  :$[size>=count str;:str;size#str];
  };
 
 .common.getLevelNames:{[]

@@ -6,20 +6,21 @@ system"l menu.q";
 system"l tetris.q";
 system"l levelSelect.q";
 
-VERSION:"v1.0.1";
+VERSION:"v1.1.0";
 
-.gameLoop.fps:60;
 LEVELS:.common.getLevelNames[];
 
 currentScene:`;
 
+.gameLoop.fps:60;
 .gameLoop.prevSecondTs:.z.p;
 .gameLoop.drawNextFrame:0b;
 
 .input.lastInput:"";
 
 main:{[]
-  `.gameLoop.fps set 0N!getFPSArg[];
+  `.z.pi set handleInput;
+  `.gameLoop.fps set getFPSArg[];
 
   pre[];
   startScene[`menu;()!()];
@@ -31,7 +32,7 @@ startScene:{[scene;args]
   value(`$".",string[currentScene],".start";args);
  };
 
-.z.pi:{[input]
+handleInput:{[input]
   input:input except "\n";
 
   if[DEBUG_ALLOW_CMDS and input like "\\*";value 1 _ input;:()];
@@ -111,4 +112,4 @@ getFPSArg:{[]
   ];
  };
 
-main[];
+if[not DEBUG_NO_AUTO_START;main[]];
