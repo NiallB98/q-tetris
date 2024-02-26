@@ -16,11 +16,11 @@
     - [Gameplay](#gameplay)
 
 ## Requirements
-* `bash` (Tested with Git Bash for Windows)
+* `bash` (Tested with Git Bash for Windows' MinTTY terminal)
 * `q/kdb+` (Tested in version 4.0)
 * The Linux command `tput` (If wanting to have the game's interface centered in the window)
 
-**Note:** Some terminals may be too slow at refreshing their visuals to show the game at 60 FPS properly, it is recommended to run through a faster terminal than the default, like running through MinTTY (Can use the MinTTY terminal Git Bash for Windows uses for example)
+**Note:** Some terminals may be too slow at refreshing their visuals to show the game at 60 FPS properly, it is recommended to run through a faster terminal than the default, like running through a [MinTTY](https://mintty.github.io/) terminal
 
 ## Introduction
 
