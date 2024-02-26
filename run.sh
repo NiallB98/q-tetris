@@ -23,13 +23,7 @@ else
     echo "Using default Q command"
     case "$machine" in
         MinGW)
-            if [ ! -z "`command -v winpty`" ]; then
-                WINPTY_CMD="winpty"
-            else
-                WINPTY_CMD=""
-            fi
-            
-            Q_CMD="$WINPTY_CMD q"
+            Q_CMD="q"
             ;;
         *)
             if [ ! -z "`command -v rlwrap`" ]; then
@@ -47,7 +41,7 @@ fi
 cd "${MAIN_SCRIPT_DIR}"
 
 # Starting main.q
-echo "Starting main.q . . ."
+echo "Running main.q . . ."
 $Q_CMD "main.q" -fps "${FPS}"
 
 # Return user to previous directory they were in
