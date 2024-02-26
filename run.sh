@@ -6,15 +6,34 @@ PAUSE_ON_END="true";
 
 . "$RUN_SCRIPT_DIR/config.env"
 
+unameOut="$(uname -s)"
+
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    CYGWIN*)    machine=Cygwin;;
+    MINGW*)     machine=MinGW;;
+    MSYS_NT*)   machine=Msys;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+
+echo ${machine}
+
 if [ ! -z "$Q_CMD" ]; then
     echo "Using custom Q command"
 else
     echo "Using default Q command"
-    case "$OSTYPE" in
-        msys*)  # Windows (Assumes q.exe has been added to PATH)
-            Q_CMD="q"
+    case "$machine" in
+        MinGW)
+            if [ ! -z "`command -v winpty`" ]; then
+                WINPTY_CMD="winpty"
+            else
+                WINPTY_CMD=""
+            fi
+            
+            Q_CMD="$WINPTY_CMD q"
             ;;
-        *)      # Other (ie. Linux)
+        *)
             if [ ! -z "`command -v rlwrap`" ]; then
                 RLWRAP_CMD="rlwrap"
             else
