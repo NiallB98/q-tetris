@@ -4,12 +4,6 @@
   1"\033[H\033[2J\033[3J";
  };
 
-.common.quitGame:{[]
-  .common.cls[];
-  -1"Thank you for playing!\n";
-  exit 0;
- };
-
 .common.centreLvl:{[lvl]
   splitLvl:"\n" vs lvl;
 
@@ -19,4 +13,10 @@
   spacesCount:0|(floor termSize%2)-floor lvlWidth%2;
 
   :"\n" sv ,[spacesCount#" "]each splitLvl;
+ };
+
+.common.quitGame:{[]
+  .common.cls[];
+  -1"\n",.common.centreLvl"Thank you for playing!\n";
+  exit 0;
  };
