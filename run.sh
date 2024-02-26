@@ -17,8 +17,6 @@ case "${unameOut}" in
     *)          machine="UNKNOWN:${unameOut}"
 esac
 
-echo ${machine}
-
 if [ ! -z "$Q_CMD" ]; then
     echo "Using custom Q command"
 else
